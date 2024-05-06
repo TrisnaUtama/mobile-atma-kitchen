@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_atma_kitchen/controllers/auth.controller.dart';
+import 'package:mobile_atma_kitchen/views/ubahPassword/email_verification_view.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -154,7 +155,12 @@ class _LoginState extends State<Login> {
                             style: TextButton.styleFrom(
                               textStyle: const TextStyle(fontSize: 14.0),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context, 
+                                MaterialPageRoute(builder: (context) => 
+                                  EmailVerificationView(),
+                              ));
+                            },
                             child: const Text(
                               'forgot password?',
                               style: TextStyle(
