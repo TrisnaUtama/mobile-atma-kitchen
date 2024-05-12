@@ -156,10 +156,12 @@ class _LoginState extends State<Login> {
                               textStyle: const TextStyle(fontSize: 14.0),
                             ),
                             onPressed: () {
-                              Navigator.push(context, 
-                                MaterialPageRoute(builder: (context) => 
-                                  EmailVerificationView(),
-                              ));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        EmailVerificationView(),
+                                  ));
                             },
                             child: const Text(
                               'forgot password?',
