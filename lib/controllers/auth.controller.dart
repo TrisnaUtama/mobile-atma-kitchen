@@ -43,6 +43,7 @@ class CredentialLogin {
           'alamat': user['alamat'],
           'bonus': user['bonus'],
           'gaji': user['gaji'],
+          'token': user['token']
         };
         if (user['id_role'] == null) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
