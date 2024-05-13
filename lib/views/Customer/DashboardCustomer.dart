@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_atma_kitchen/views/Customer/profileCustomer.dart';
 import 'package:mobile_atma_kitchen/views/Customer/homePage.dart';
-import 'package:mobile_atma_kitchen/views/Customer/searchPage.dart';
+import 'package:mobile_atma_kitchen/views/Customer/Produk/components/layout.produk.dart';
 import 'package:mobile_atma_kitchen/views/Customer/historyPage.dart';
 
 class DashboardCustomer extends StatefulWidget {
@@ -19,7 +19,7 @@ class _DashboardCustomerState extends State<DashboardCustomer> {
     // Define your pages here
     // Example:
     HomePage(),
-    SearchPage(),
+    ProdukList(),
     HistoryPage(),
     ProfileCustomer(),
   ];
@@ -60,7 +60,8 @@ class _DashboardCustomerState extends State<DashboardCustomer> {
                       icon: Icons.home,
                       text: 'Home',
                     ),
-                    GButton(icon: Icons.search, text: 'Search'),
+                    GButton(
+                        icon: Icons.production_quantity_limits, text: 'Produk'),
                     GButton(icon: Icons.history, text: 'History'),
                     GButton(
                       icon: Icons.settings,
