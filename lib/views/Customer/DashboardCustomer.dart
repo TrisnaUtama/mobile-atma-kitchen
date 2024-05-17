@@ -33,48 +33,51 @@ class _DashboardCustomerState extends State<DashboardCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          IndexedStack(
-            index: _selectedIndex,
-            children: _pages,
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              color: const Color.fromARGB(242, 242, 242, 242),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                child: GNav(
-                  backgroundColor: Color.fromARGB(242, 242, 242, 242),
-                  color: Colors.green,
-                  activeColor: Colors.green,
-                  tabBackgroundColor: Color.fromARGB(255, 221, 255, 182),
-                  padding: EdgeInsets.all(13),
-                  gap: 8,
-                  tabs: const [
-                    GButton(
-                      icon: Icons.home,
-                      text: 'Home',
-                    ),
-                    GButton(
-                        icon: Icons.production_quantity_limits, text: 'Produk'),
-                    GButton(icon: Icons.history, text: 'History'),
-                    GButton(
-                      icon: Icons.settings,
-                      text: 'Settings',
-                    ),
-                  ],
-                  selectedIndex: _selectedIndex,
-                  onTabChange: _onItemTapped,
-                ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: GNav(
+            backgroundColor: Colors.black,
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.white,
+            padding: EdgeInsets.all(13),
+            gap: 5,
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+                textColor: Colors.black,
+                iconActiveColor: Colors.black,
               ),
-            ),
+              GButton(
+                icon: Icons.production_quantity_limits,
+                text: 'Produk',
+                textColor: Colors.black,
+                iconActiveColor: Colors.black,
+              ),
+              GButton(
+                icon: Icons.history,
+                text: 'History',
+                textColor: Colors.black,
+                iconActiveColor: Colors.black,
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Settings',
+                textColor: Colors.black,
+                iconActiveColor: Colors.black,
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: _onItemTapped,
           ),
-        ],
+        ),
       ),
     );
   }
