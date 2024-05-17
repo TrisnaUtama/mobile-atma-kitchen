@@ -285,6 +285,7 @@ packages:
     description:
       name: meta
       sha256: a6e590c838b18133bb482a2745ad77c5bb7715fb0451209e1a7567d416678b8e
+
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
@@ -296,11 +297,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.10.0"
   path:
     dependency: transitive
     description:
       name: path
       sha256: "8829d8a55c13fc0e37127c29fedf290c102f4e40ae94ada574091fe0ff96c917"
+
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
@@ -336,6 +342,9 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.8.3"
   path_provider_linux:
     dependency: transitive
     description:
