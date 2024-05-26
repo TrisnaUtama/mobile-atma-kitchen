@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_atma_kitchen/views/Customer/profileCustomer.dart';
 import 'package:mobile_atma_kitchen/views/Customer/homePage.dart';
-import 'package:mobile_atma_kitchen/views/Customer/Produk/components/layout.produk.dart';
+import 'package:mobile_atma_kitchen/views/Customer/Produk/layout.produk.dart';
 import 'package:mobile_atma_kitchen/views/Customer/historyPage.dart';
 
 class DashboardCustomer extends StatefulWidget {
