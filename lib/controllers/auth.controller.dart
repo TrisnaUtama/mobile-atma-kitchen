@@ -16,10 +16,12 @@ class CredentialLogin {
       if (value.statusCode == 200) {
         print(value.statusCode);
         var user = jsonDecode(value.body)['data'];
+        var token = jsonDecode(value.body)['access_token'];
         SharedPref.saveInt('id', user['id']);
         SharedPref.saveNullableInt('id_role', user['id_role']);
         SharedPref.saveNullableInt('id_saldo', user['id_saldo']);
         SharedPref.saveStr('nama', user['nama']);
+        SharedPref.saveStr('token', token);
         SharedPref.saveStr('email', user['email']);
         SharedPref.saveStr('password', user['password']);
         SharedPref.saveStr('no_telpn', user['no_telpn']);
@@ -43,7 +45,7 @@ class CredentialLogin {
           'alamat': user['alamat'],
           'bonus': user['bonus'],
           'gaji': user['gaji'],
-          'token': user['token']
+          'token': token
         };
         if (user['id_role'] == null) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
