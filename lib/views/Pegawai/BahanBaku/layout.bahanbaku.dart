@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_file.dart';
 import 'package:mobile_atma_kitchen/controllers/bahanbaku.controller/bahan_baku.controller.dart';
 import 'package:mobile_atma_kitchen/models/Bahan_Baku.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class BahanBakuList extends StatefulWidget {
   const BahanBakuList({super.key});
@@ -26,8 +26,7 @@ class _BahanBakuListState extends State<BahanBakuList> {
   Future<void> _printData() async {
     final doc = pw.Document();
     final bahanBakuList = await _futureBahanBaku;
-    String currentDate = DateFormat('d MMMM y', 'id_ID').format(DateTime.now());
-
+    DateTime now = new DateTime.now();
     doc.addPage(pw.Page(
         pageFormat: PdfPageFormat.a3,
         build: (pw.Context context) {
@@ -38,7 +37,7 @@ class _BahanBakuListState extends State<BahanBakuList> {
               pw.Text('Jl. Centralpark No. 10 Yogyakarta'),
               pw.SizedBox(height: 20),
               pw.Text('LAPORAN Stok Bahan Baku'),
-              pw.Text('Tanggal cetak: ${currentDate}'),
+              pw.Text('Tanggal cetak: ${now}'),
               pw.SizedBox(height: 20),
               pw.Table(
                 border: pw.TableBorder.all(),
