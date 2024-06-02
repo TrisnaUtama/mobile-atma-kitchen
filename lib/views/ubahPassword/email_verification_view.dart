@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:mobile_atma_kitchen/controllers/forgot_password.dart';
@@ -50,8 +49,6 @@ class _EmailVerificationViewState extends State<EmailVerificationView> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () async {
-                      print("KONTOL");
-          
                     if(_formKey.currentState!.validate()){
                       setState(() {
                         isSubmit = true;
@@ -62,7 +59,6 @@ class _EmailVerificationViewState extends State<EmailVerificationView> {
                         MaterialPageRoute(builder: ((context) => ChangePassword(token: res.data['token'].toString(),))
                         ),);
                       }
-                      print("KONTOL");
                       print(res.statusCode);
                       print(res.data['token'].toString());
                     }

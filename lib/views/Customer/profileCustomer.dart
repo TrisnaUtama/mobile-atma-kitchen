@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_atma_kitchen/constan.dart';
 import 'package:mobile_atma_kitchen/views/login.view.dart';
+import 'package:mobile_atma_kitchen/views/Customer/Saldo/saldoPage.dart';
 
 class ProfileCustomer extends StatelessWidget {
   @override
@@ -8,6 +9,18 @@ class ProfileCustomer extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Saldo()));
+            },
+            icon: Icon(Icons
+                .account_balance_wallet,
+                color: Colors.blue,), // Icon yang digunakan untuk tombol saldo
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -28,11 +41,11 @@ class ProfileCustomer extends StatelessWidget {
               style: TextStyle(fontSize: 24),
             ),
             Text(
-              "Nama, ${dataUser['no_telpn']}",
+              "No telp, ${dataUser['no_telpn']}",
               style: TextStyle(fontSize: 24),
             ),
             Text(
-              "Nama, ${dataUser['tanggal_lahir']}",
+              "Tanggal lahir, ${dataUser['tanggal_lahir']}",
               style: TextStyle(fontSize: 24),
             ),
             Text(
