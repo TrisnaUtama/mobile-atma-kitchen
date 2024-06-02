@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_atma_kitchen/views/login.view.dart';
+import 'package:intl/intl.dart';
 
 void main() {
-  runApp(const MyApp());
+  Intl.defaultLocale = 'id_ID';
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
