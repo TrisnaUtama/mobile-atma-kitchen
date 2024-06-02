@@ -6,29 +6,32 @@ import 'package:mobile_atma_kitchen/views/Customer/DashboardCustomer.dart';
 import 'package:mobile_atma_kitchen/views/Pegawai/DashboardPegawai.dart';
 
 class CredentialLogin {
-  verifiedCredential(String email, String password, BuildContext context) {
-    var response = post(Uri.http(url, '$endpoint/auth/login'), body: {
-      'email': email,
-      'password': password,
-    });
+  Future<void> verifiedCredential(
+      String email, String password, BuildContext context) async {
+    try {
+      var response = await post(Uri.http(url, '$endpoint/auth/login'), body: {
+        'email': email,
+        'password': password,
+      });
 
-    response.then((value) {
-      if (value.statusCode == 200) {
-        print(value.statusCode);
-        var user = jsonDecode(value.body)['data'];
-        SharedPref.saveInt('id', user['id']);
-        SharedPref.saveNullableInt('id_role', user['id_role']);
-        SharedPref.saveNullableInt('id_saldo', user['id_saldo']);
-        SharedPref.saveStr('nama', user['nama']);
-        SharedPref.saveStr('email', user['email']);
-        SharedPref.saveStr('password', user['password']);
-        SharedPref.saveStr('no_telpn', user['no_telpn']);
-        SharedPref.saveStr('tanggal_lahir', user['tanggal_lahir']);
-        SharedPref.saveNullableStr('gender', user['gender']);
-        SharedPref.saveNullableStr('poin', user['poin']);
-        SharedPref.saveNullableStr('alamat', user['alamat']);
-        SharedPref.saveNullableStr('bonus', user['bonus']);
-        SharedPref.saveNullableStr('gaji', user['gaji']);
+      if (response.statusCode == 200) {
+        var value = jsonDecode(response.body);
+        var user = value['data'];
+
+        await SharedPref.saveStr('access_token', value['access_token']);
+        await SharedPref.saveNullableInt('id_role', user['id_role']);
+        await SharedPref.saveNullableInt('id_saldo', user['id_saldo']);
+        await SharedPref.saveStr('nama', user['nama']);
+        await SharedPref.saveStr('email', user['email']);
+        await SharedPref.saveStr('password', user['password']);
+        await SharedPref.saveStr('no_telpn', user['no_telpn']);
+        await SharedPref.saveStr('tanggal_lahir', user['tanggal_lahir']);
+        await SharedPref.saveNullableStr('gender', user['gender']);
+        await SharedPref.saveNullableStr('poin', user['poin']);
+        await SharedPref.saveNullableStr('alamat', user['alamat']);
+        await SharedPref.saveNullableStr('bonus', user['bonus']);
+        await SharedPref.saveNullableStr('gaji', user['gaji']);
+
         dataUser = {
           'id': user['id'],
           'id_saldo': user['id_saldo'],
@@ -43,20 +46,18 @@ class CredentialLogin {
           'alamat': user['alamat'],
           'bonus': user['bonus'],
           'gaji': user['gaji'],
-          'token': user['token']
+          'token': value['access_token']
         };
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Welcome back, ${user['nama']}"),
+          backgroundColor: Colors.green,
+        ));
+
         if (user['id_role'] == null) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text("Welcome back, ${user['nama']}"),
-            backgroundColor: Colors.green,
-          ));
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => DashboardCustomer()));
-        } else if (user['id_role'] == 3) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text("Welcome back, ${user['nama']}"),
-            backgroundColor: Colors.green,
-          ));
+        } else if (user['id_role'] == 3 || user['id_role'] == 1) {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => DashboardPegawai()));
         } else {
@@ -66,12 +67,16 @@ class CredentialLogin {
           ));
         }
       } else {
-        print(value.statusCode);
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("Email or password is wrong"),
           backgroundColor: Colors.red,
         ));
       }
-    });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("An error occurred: $e"),
+        backgroundColor: Colors.red,
+      ));
+    }
   }
 }

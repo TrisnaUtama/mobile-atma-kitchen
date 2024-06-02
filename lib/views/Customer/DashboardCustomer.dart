@@ -16,8 +16,6 @@ class _DashboardCustomerState extends State<DashboardCustomer> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    // Define your pages here
-    // Example:
     HomePage(),
     ProdukList(),
     HistoryPage(),
