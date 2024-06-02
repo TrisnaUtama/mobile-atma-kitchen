@@ -22,7 +22,6 @@ class Presensi {
 
   Map<String, dynamic> toJson() {
     return {
-      
       'id_pegawai': id_pegawai,
       'tanggal_presensi': tanggal_presensi,
       'status': status_presensi,
