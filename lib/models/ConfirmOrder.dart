@@ -11,7 +11,7 @@ class ConfirmOrder {
   final String statusPesanan;
   final double? uangCustomer;
   final double? tip;
-  final int idAlamat;
+  final int? idAlamat;
   final String noNota;
   final String buktiPembayaran;
   final Customer nama;
