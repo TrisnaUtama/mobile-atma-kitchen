@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_atma_kitchen/views/Customer/profileCustomer.dart';
-import 'package:mobile_atma_kitchen/views/Customer/homePage.dart';
+import 'package:mobile_atma_kitchen/views/Customer/Confirm Order/confirmOrder.dart';
 import 'package:mobile_atma_kitchen/views/Customer/Produk/layout.produk.dart';
 import 'package:mobile_atma_kitchen/views/Customer/historyPage.dart';
 
@@ -16,10 +16,8 @@ class _DashboardCustomerState extends State<DashboardCustomer> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    // Define your pages here
-    // Example:
-    HomePage(),
     ProdukList(),
+    ConfirmOrderApp(),
     HistoryPage(),
     ProfileCustomer(),
   ];
@@ -50,14 +48,14 @@ class _DashboardCustomerState extends State<DashboardCustomer> {
             gap: 5,
             tabs: const [
               GButton(
-                icon: Icons.home,
-                text: 'Home',
+                icon: Icons.production_quantity_limits,
+                text: 'Produk',
                 textColor: Colors.black,
                 iconActiveColor: Colors.black,
               ),
               GButton(
-                icon: Icons.production_quantity_limits,
-                text: 'Produk',
+                icon: Icons.sort,
+                text: 'Confirm Order',
                 textColor: Colors.black,
                 iconActiveColor: Colors.black,
               ),

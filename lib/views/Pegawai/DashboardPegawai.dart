@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_atma_kitchen/views/Pegawai/Presensi.dart';
+
 import 'package:mobile_atma_kitchen/views/LaporanPresensi/laporanPresensiPegawai.dart';
+
+import 'package:mobile_atma_kitchen/views/Pegawai/BahanBaku/layout.bahanbaku.dart';
+import 'package:mobile_atma_kitchen/views/Pegawai/BahanBakuPeriode/layoutperiode.bahanbaku.dart';
+
 
 class DashboardPegawai extends StatefulWidget {
   const DashboardPegawai({super.key});
 
   @override
-  State<DashboardPegawai> createState() => _DashboardCustomerState();
+  State<DashboardPegawai> createState() => _DashboardPegawaiState();
 }
 
-class _DashboardCustomerState extends State<DashboardPegawai> {
+class _DashboardPegawaiState extends State<DashboardPegawai> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    // Define your pages here
-    // HomePage(),
-    // SearchPage(),
-    // HistoryPage(),
+    BahanBakuList(),
     PresensiPegawai(),
+    BahanBakuListPeriode(),
   ];
 
   void _onItemTapped(int index) {
@@ -30,6 +33,7 @@ class _DashboardCustomerState extends State<DashboardPegawai> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Stack(
         children: [
           IndexedStack(
@@ -75,9 +79,12 @@ class _DashboardCustomerState extends State<DashboardPegawai> {
                   onTabChange: _onItemTapped,
                 ),
               ),
-            ),
+              GButton(icon: Icons.settings, text: 'Settings'),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: _onItemTapped,
           ),
-        ],
+        ),
       ),
     );
   }

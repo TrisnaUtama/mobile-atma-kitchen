@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile_atma_kitchen/constan.dart';
 import 'package:mobile_atma_kitchen/models/Produk.dart';
 
 class ProdukCard extends StatelessWidget {
@@ -15,6 +16,7 @@ class ProdukCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(dataUser);
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black38),
