@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_atma_kitchen/views/Pegawai/Presensi.dart';
+import 'package:mobile_atma_kitchen/views/LaporanPresensi/laporanPresensiPegawai.dart';
 
 class DashboardPegawai extends StatefulWidget {
   const DashboardPegawai({super.key});
@@ -60,6 +61,13 @@ class _DashboardCustomerState extends State<DashboardPegawai> {
                     GButton(
                       icon: Icons.person,
                       text: 'Presensi',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LaporanPegawaiPage()),
+                        );
+                      },
                     ),
                     GButton(icon: Icons.settings, text: 'Settings'),
                   ],

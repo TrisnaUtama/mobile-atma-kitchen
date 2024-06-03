@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_atma_kitchen/controllers/Presensi/presensi.controlller.dart';
 import 'package:mobile_atma_kitchen/models/Presensi.dart';
+import 'package:mobile_atma_kitchen/models/pegawai.dart';
 
 /// Flutter code sample for [DataTable].
 

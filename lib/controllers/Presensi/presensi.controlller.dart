@@ -30,7 +30,6 @@ class PresensiController {
         throw Exception('Failed to load data: ${response.body}');
       }
     } catch (error) {
-      print('celak');
       throw Exception('Failed to connect to server: $error');
     }
   }
