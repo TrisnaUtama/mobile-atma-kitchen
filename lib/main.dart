@@ -5,7 +5,6 @@ import 'package:mobile_atma_kitchen/views/landingPage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_atma_kitchen/views/login.view.dart';
 
-
 void main() {
   runApp(MyApp());
 }
